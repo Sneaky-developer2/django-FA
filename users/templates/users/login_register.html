@@ -13,8 +13,8 @@
       <a href="/">
         <img src="{% static 'images/icon.svg' %}" alt="icon" />
       </a>
-      <h3>Register an Account</h3>
-      <p>Create a new developer account</p>
+      <h3>ساخت حساب</h3>
+      <p>ساخت حساب برنامه نویسی جدید</p>
     </div>
 
 
@@ -45,8 +45,8 @@
       </div>
     </form>
     <div class="auth__alternative">
-      <p>Already have an Account?</p>
-      <a href="{%url 'login' %}"><button class="btn btn--sub--outline btn--sm">Log In</button></a>
+      <p>ای از قبل حساب دارید؟</p>
+      <a href="{%url 'login' %}"><button class="btn btn--sub--outline btn--sm">ورود</button></a>
     </div>
   </div>
 </div>
@@ -61,33 +61,35 @@
       <a href="/">
         <img src="{% static 'images/icon.svg' %}" alt="icon" />
       </a>
-      <h3>Account Login</h3>
-      <p>Hello Developer, Welcome Back!</p>
+      <h3>ورود حساب</h3>
+      <p>
+        سلام برنامه نویسان! خوش امدید
+      </p>
     </div>
 
     <form action="" method="POST" class="form auth__form">
       {% csrf_token %}
       <!-- Input:Username -->
       <div class="form__field">
-        <label for="formInput#text">Username: </label>
+        <label for="formInput#text">نام کاربری</label>
         <input class="input input--text" id="formInput#text" type="text" name="username"
           placeholder="Enter your username..." />
       </div>
 
       <!-- Input:Password -->
       <div class="form__field">
-        <label for="formInput#password">Password: </label>
+        <label for="formInput#password">رمز عبور</label>
         <input class="input input--password" id="formInput#passowrd" type="password" name="password"
           placeholder="password" />
       </div>
       <div class="auth__actions">
-        <button class="btn btn--main--outline">Login</button>
-        <a href="{% url 'reset_password' %}">Forget Password?</a>
+        <button class="btn btn--main--outline">ورود</button>
+        <a href="{% url 'reset_password' %}">رمز عبورتان را فراموش کردید؟</a>
       </div>
     </form>
     <div class="auth__alternative">
-      <p>Dont have an Account?</p>
-      <a href="{% url 'register' %}"><button class="btn btn--sub--outline btn--sm">Sign Up</button></a>
+      <p>هنوز حسابی ندارید؟</p>
+      <a href="{% url 'register' %}"><button class="btn btn--sub--outline btn--sm">ثبت نام</button></a>
     </div>
   </div>
 </div>

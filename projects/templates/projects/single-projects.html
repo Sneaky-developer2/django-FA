@@ -4,7 +4,7 @@
   <div class="container">
     <div class="layout">
       <div class="column column--1of3">
-        <h3 class="singleProject__subtitle">Tools & Stacks</h3>
+        <h3 class="singleProject__subtitle">ابزار</h3>
         <div class="singleProject__toolStack">
           {% for tag in project.tags.all %}
           <span class="tag tag--pill tag--sub tag--lg">
@@ -15,7 +15,7 @@
           {% if project.source_link %}
         </div>
         <a class="singleProject__liveLink" href="{{ project.source_link }}" target="_blank"><i
-            class="im im-external-link"></i>Source Code
+            class="im im-external-link"></i>کد منبع
         </a>
       </div>
       {% endif %}
@@ -23,7 +23,7 @@
       {% if project.demo_link %}
     </div>
     <a class="singleProject__liveLink" href="{{project.demo_link}}" target="_blank"><i
-        class="im im-external-link"></i>Live Demo</a>
+        class="im im-external-link"></i>نسخه نمایشی زنده</a>
   </div>
   {% endif %}
 
@@ -32,22 +32,22 @@
     <img class="singleProject__preview" src="{{ project.imageURL }}" alt="portfolio thumbnail" />
     <a href="{% url  'user-profile' project.owner.id %}" class="singleProject__developer">{{project.owner.name}}</a>
     <h2 class="singleProject__title">{{project.title}}</h2>
-    <h3 class="singleProject__subtitle">About the Project</h3>
+    <h3 class="singleProject__subtitle">درباره پروژه</h3>
     <div class="singleProject__info">
       <p>{{project.description}}</p>
       <br />
     </div>
 
     <div class="comments">
-      <h3 class="singleProject__subtitle">Feedback</h3>
+      <h3 class="singleProject__subtitle">بازخورد</h3>
       <h5 class="project--rating">
-        {{project.vote_ratio}}% Postitive Feedback ({{project.vote_total}}
-        Vote{{project.vote_total|pluralize:"s"}})
+        {{project.vote_ratio}}% بازخورد مثبت ({{project.vote_total}}
+        رای{{project.vote_total|pluralize:"s"}})
       </h5>
       {% if request.user.profile.id in project.reviewers %}
-      <p>You have already submitted your review for this Project</p>
+      <p>شما قبلاً نظر خود را برای این پروژه ارسال کرده اید</p>
       {% elif request.user.profile == project.owner %}
-      <p>you cannot review your own work</p>
+      <p>شما نمی توانید کار خود رانظر بدهید</p>
       {% elif request.user.is_authenticated %}
       <form class="form" action="{% url 'project' project.id %}" method="POST">
         {% csrf_token %}
@@ -60,7 +60,7 @@
         <input class="btn btn--sub btn--lg" type="submit" value="Comments" />
       </form>
       {% else %}
-      <a href="{% url 'login' %}?next={{request.path}}">Please Login to leave review</a>
+      <a href="{% url 'login' %}?next={{request.path}}">لطفا با یک حساب وارد شوید تا نظر بدهید</a>
       {% endif %}
 
       <div class="commentList">

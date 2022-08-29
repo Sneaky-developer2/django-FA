@@ -9,14 +9,10 @@
 
       <form class="form" method="POST" action="">
         {% csrf_token %}
-        <p>Are you sure you want to Delete "{{object}}"?</p>
+        <p> را حذف کنید؟ "{{object}} ایا واقعا میخواهید "</p>
         <br>
-        <a class="btn btn--sub--outline " href="{{request.GET.next}}">Go Back</a>
-        <input
-          class="btn btn--sub btn--lg"
-          type="submit"
-          value="Confirm"
-        />
+        <a class="btn btn--sub--outline " href="{{request.GET.next}}">برگشت</a>
+        <input class="btn btn--sub btn--lg" type="submit" value="تایید" />
       </form>
     </div>
   </div>
